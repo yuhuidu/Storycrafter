@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    // let's tell some stories! :D - sarah
+    // let's tell some sci-fi stories! :D - sarah
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
