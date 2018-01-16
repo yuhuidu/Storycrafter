@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NodeClicked"></activity>
+        <activity android:name=".NodeClicked" />
+        <activity android:name=".PlayActivity"></activity>
     </application>
 
 </manifest>

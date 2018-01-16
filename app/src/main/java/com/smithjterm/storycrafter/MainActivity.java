@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // let's tell some sci-fi stories! :D - sarah
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         //TextView postView = (TextView) findViewById(R.id.postEntry);
         //intent.putExtra(POST_KEY,postView.getText().toString());
 
+        startActivity(intent);
+    }
+
+    public void playActivity(View view){
+        Intent intent = new Intent(this, PlayActivity.class);
         startActivity(intent);
     }
 }
