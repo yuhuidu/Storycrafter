@@ -1,8 +1,10 @@
 package com.smithjterm.storycrafter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,20 +15,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        StoryTree mainTree = new StoryTree();
+        StoryTree mainTree = new StoryTree(1);
 
-        mainTree.setLeft(new StoryTree());
-        mainTree.setRight(new StoryTree());
+        mainTree.setLeft(new StoryTree(2));
+        mainTree.setRight(new StoryTree(3));
 
-        mainTree.getLeft().setLeft(new StoryTree());
-        mainTree.getLeft().setRight(new StoryTree());
+        mainTree.getLeft().setLeft(new StoryTree(4));
+        mainTree.getLeft().setRight(new StoryTree(5));
 
-        mainTree.getRight().setLeft(new StoryTree());
-        mainTree.getRight().setRight(new StoryTree());
+        mainTree.getRight().setLeft(new StoryTree(6));
+        mainTree.getRight().setRight(new StoryTree(7));
 
         // The test below makes sure isFull works.
 
         //  String result = "test result: "+mainTree.isFull();
         //  Log.i("MainActivity",result);
+
+        /* public void startNewActivity(View view){ // have View as a param
+            Intent i = new Intent(this, SecondActivity.class);
+
+            TextView postView = (TextView) findViewById(R.id.postEntry);
+
+            i.putExtra(POST_KEY,postView.getText().toString());
+
+            startActivity(i);
+
+        } */
     }
 }

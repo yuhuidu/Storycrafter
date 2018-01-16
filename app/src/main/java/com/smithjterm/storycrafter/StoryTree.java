@@ -8,6 +8,7 @@ public class StoryTree {
     private StoryTree left;
     private StoryTree right;
 
+    private int id;
     private String title;
     private String body;
     private String choice1txt;
@@ -20,11 +21,20 @@ public class StoryTree {
       choice2txt = "";
     }
 
-    public StoryTree(String t, String b, String c1, String c2){
+    public StoryTree(int x){
+        title = "";
+        body = "";
+        choice1txt = "";
+        choice2txt = "";
+        id = x;
+    }
+
+    public StoryTree(String t, String b, String c1, String c2, int x){
       title = t;
       body = b;
       choice1txt = c1;
       choice2txt = c2;
+      id = x;
     }
 
     public StoryTree getLeft() {
@@ -51,12 +61,23 @@ public class StoryTree {
         return choice2txt;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setLeft(StoryTree left) {
         this.left = left;
     }
 
     public void setRight(StoryTree right) {
         this.right = right;
+    }
+
+    public void setData(String t, String b, String c1, String c2){
+        title = t;
+        body = b;
+        choice1txt = c1;
+        choice2txt = c2;
     }
 
     public void setTitle(String title) {
