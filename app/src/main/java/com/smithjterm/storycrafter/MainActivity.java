@@ -1,8 +1,11 @@
 package com.smithjterm.storycrafter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,5 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
         //  String result = "test result: "+mainTree.isFull();
         //  Log.i("MainActivity",result);
+    }
+
+    public void startNewActivity (View view){
+        Intent intent = new Intent(this, NodeClicked.class);
+
+        //TextView postView = (TextView) findViewById(R.id.postEntry);
+        //intent.putExtra(POST_KEY,postView.getText().toString());
+
+        startActivity(intent);
     }
 }
