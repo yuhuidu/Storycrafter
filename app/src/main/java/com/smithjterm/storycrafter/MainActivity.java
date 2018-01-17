@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startNewActivity (View view){
-        int id = view.getId()-2131165250;
+        int id = (int) view.getId()-2131165250;
         // Log.i("MainActivity","searching for "+id);
         StoryTree tweakNode = mainTree.treeSearch(id);
 
@@ -93,5 +93,10 @@ public class MainActivity extends AppCompatActivity {
                 // Do something with the contact here (bigger example below)
             }
         }
+    }
+
+    public void playActivity(View view){
+        Intent intent = new Intent(this, PlayActivity.class);
+        startActivity(intent);
     }
 }
