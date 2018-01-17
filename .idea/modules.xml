@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/StoryCrafter.iml" filepath="$PROJECT_DIR$/StoryCrafter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Storycrafter.iml" filepath="$PROJECT_DIR$/Storycrafter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

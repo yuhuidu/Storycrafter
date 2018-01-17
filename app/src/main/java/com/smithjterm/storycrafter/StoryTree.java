@@ -1,5 +1,7 @@
 package com.smithjterm.storycrafter;
 
+import android.util.Log;
+
 /**
  * Created by Sarah Abowitz on 1/16/18.
  */
@@ -53,11 +55,11 @@ public class StoryTree {
         return body;
     }
 
-    public String getChoice1txt() {
+    public String getChoice1Txt() {
         return choice1txt;
     }
 
-    public String getChoice2txt() {
+    public String getChoice2Txt() {
         return choice2txt;
     }
 
@@ -106,5 +108,24 @@ public class StoryTree {
       }
 
       return true;
+    }
+
+    public StoryTree treeSearch(int num){
+        // Log.i("StoryTree","current id is "+id);
+        if (id == num) {
+           // Log.i("StoryTree","num found");
+            return this;
+        }
+
+        if (left != null && right != null){
+            // Log.i("StoryTree","going left");
+            StoryTree l = left.treeSearch(num);
+            // Log.i("StoryTree","going right");
+            StoryTree r = right.treeSearch(num);
+            if (l != null) return l;
+            if (r != null) return r;
+        }
+
+        return null;
     }
 }

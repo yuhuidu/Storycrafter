@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Story Crafter</string>
-    <string name="play">Play</string>
     <string name="title">Enter the title</string>
     <string name="body">Enter the body</string>
     <string name="choice1">Enter the 1st choice</string>
     <string name="choice2">Enter the 2nd choice</string>
+    <string name="play">Play</string>
+    <string name="save_entry">Save Entry</string>
 </resources>
