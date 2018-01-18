@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     // let's tell some sci-fi stories! :D - sarah
     static final int EDIT_REQUEST = 1;
+    static final int RESTART_REQUEST = 2;
+    static final int BACK_REQUEST = 3;
     public static final String EDIT_ID_KEY = "edit id";
     public static final String EDIT_TITLE_KEY = "edit title";
     public static final String EDIT_BODY_KEY = "edit body";
@@ -120,8 +122,20 @@ public class MainActivity extends AppCompatActivity {
                 tweakNode.setChoice1txt(extras.getString(EDIT_CHOICE_1_KEY));
                 tweakNode.setChoice2txt(extras.getString(EDIT_CHOICE_2_KEY));
                 // Log.i("MainActivity", mainTree.getBody());
-                // The Intent's data Uri identifies which contact was selected.
-                // Do something with the contact here (bigger example below)
+
+            }
+        } else if (requestCode == RESTART_REQUEST){
+            if (resultCode == RESULT_OK){
+                mainTree = new StoryTree(0);
+                mainTree.setLeft(new StoryTree(2));
+                mainTree.setRight(new StoryTree(1));
+
+                mainTree.getLeft().setLeft(new StoryTree("", "", "This is an ending", "Choices will not show",4));
+                mainTree.getLeft().setRight(new StoryTree("", "", "This is an ending", "Choices will not show",6));
+
+                mainTree.getRight().setLeft(new StoryTree("", "", "This is an ending", "Choices will not show",5));
+                mainTree.getRight().setRight(new StoryTree("", "", "This is an ending", "Choices will not show",3));
+
             }
         }
     }
@@ -150,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(NODE_7_TITLE_KEY, mainTree.getRight().getRight().getTitle());
             intent.putExtra(NODE_7_BODY_KEY, mainTree.getRight().getRight().getBody());
 
-            startActivity(intent);
+            startActivityForResult(intent, RESTART_REQUEST);
         }
         else{
             Intent intent = new Intent(this, popupWindow.class);

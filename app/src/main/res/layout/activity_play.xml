@@ -21,15 +21,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/titleText_inplay"
+            android:id="@+id/playTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="33dp"
             tools:layout_editor_absoluteY="53dp" />
 
         <TextView
-            android:id="@+id/bodyText_inplay"
+            android:id="@+id/playBody"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:inputType="textEmailAddress|textMultiLine"
@@ -48,10 +50,11 @@
             tools:layout_editor_absoluteY="263dp">
 
             <TextView
-                android:id="@+id/c1Text_inplay"
+                android:id="@+id/playChoice1Text"
                 android:layout_width="277dp"
                 android:layout_height="54dp"
                 android:text="TextView"
+                android:textSize="18sp"
                 tools:layout_editor_absoluteX="95dp"
                 tools:layout_editor_absoluteY="256dp" />
 
@@ -75,10 +78,11 @@
             tools:layout_editor_absoluteY="356dp">
 
             <TextView
-                android:id="@+id/c2Text_inplay"
+                android:id="@+id/playChoice2Text"
                 android:layout_width="277dp"
                 android:layout_height="54dp"
                 android:text="TextView"
+                android:textSize="18sp"
                 tools:layout_editor_absoluteX="49dp"
                 tools:layout_editor_absoluteY="206dp" />
 
