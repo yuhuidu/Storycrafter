@@ -110,6 +110,19 @@ public class StoryTree {
       return true;
     }
 
+    public String toString(String starter){
+        starter+=""+id+" "+title+" "+body+" "+choice1txt+" "+choice2txt;
+
+        if (left != null && right != null){
+            starter += " < ";
+            starter = left.toString(starter);
+            starter += " > ";
+            starter = right.toString(starter);
+        }
+
+        return starter;
+    }
+
     public StoryTree treeSearch(int num){
         // Log.i("StoryTree","current id is "+id);
         if (id == num) {
@@ -127,5 +140,10 @@ public class StoryTree {
         }
 
         return null;
+    }
+
+    public String[] packageAssets(){
+      String[] result = {title, body, choice1txt, choice2txt};
+      return result;
     }
 }
