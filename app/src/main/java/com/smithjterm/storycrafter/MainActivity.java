@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -120,9 +122,6 @@ public class MainActivity extends AppCompatActivity {
                 // Log.i("MainActivity", mainTree.getBody());
                 // The Intent's data Uri identifies which contact was selected.
                 // Do something with the contact here (bigger example below)
-
-
-
             }
         }
     }
@@ -153,6 +152,11 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(intent);
         }
+        else{
+            Intent intent = new Intent(this, popupWindow.class);
+            startActivity(intent);
+        }
     }
+
 
 }
