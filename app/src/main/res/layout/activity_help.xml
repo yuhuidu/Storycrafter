@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b2"
-    tools:context="com.smithjterm.storycrafter.popupWindow">
+    tools:context="com.smithjterm.storycrafter.help">
 
     <LinearLayout
-        android:layout_width="317dp"
-        android:layout_height="198dp"
-        android:layout_marginBottom="157dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="156dp"
+        android:layout_width="374dp"
+        android:layout_height="525dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,26 +22,26 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="194dp"
-            android:layout_height="84dp"
-            android:lineSpacingExtra="8sp"
-            android:text="@string/text_in_popup"
-            android:textAlignment="center"
+            android:id="@+id/textView2"
+            android:layout_width="358dp"
+            android:layout_height="396dp"
+            android:text="@string/help_text"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
-            tools:layout_editor_absoluteX="112dp"
-            tools:layout_editor_absoluteY="112dp" />
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="43dp"
+            tools:layout_editor_absoluteY="16dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button1"
             android:onClick="startNewActivity"
             android:text="OK"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="189dp" />
+            android:textColor="@android:color/background_dark"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="429dp" />
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
