@@ -18,6 +18,30 @@ public class MainActivity extends AppCompatActivity {
     public static final String EDIT_CHOICE_1_KEY = "edit choice 1";
     public static final String EDIT_CHOICE_2_KEY = "edit choice 2";
 
+
+    // key for nodes below, this has nothing to do with the id field
+    //     1
+    //   2   3
+    //  4 5 6 7
+
+    public static final String NODE_1_INFO_KEY = "node 1 title";
+
+    public static final String NODE_2_INFO_KEY = "node 2 title";
+
+    public static final String NODE_3_INFO_KEY = "node 3 title";
+
+    public static final String NODE_4_TITLE_KEY = "node 4 title";
+    public static final String NODE_4_BODY_KEY = "node 4 body";
+
+    public static final String NODE_5_TITLE_KEY = "node 5 title";
+    public static final String NODE_5_BODY_KEY = "node 5 body";
+
+    public static final String NODE_6_TITLE_KEY = "node 6 title";
+    public static final String NODE_6_BODY_KEY = "node 6 body";
+
+    public static final String NODE_7_TITLE_KEY = "node 7 title";
+    public static final String NODE_7_BODY_KEY = "node 7 body";
+
     StoryTree mainTree = new StoryTree(0);
 
     @Override
@@ -28,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
         mainTree.setLeft(new StoryTree(2));
         mainTree.setRight(new StoryTree(1));
 
-        mainTree.getLeft().setLeft(new StoryTree(4));
-        mainTree.getLeft().setRight(new StoryTree(6));
+        mainTree.getLeft().setLeft(new StoryTree("", "", "This is an ending", "Choices will not show",4));
+        mainTree.getLeft().setRight(new StoryTree("", "", "This is an ending", "Choices will not show",6));
 
-        mainTree.getRight().setLeft(new StoryTree(5));
-        mainTree.getRight().setRight(new StoryTree(3));
+        mainTree.getRight().setLeft(new StoryTree("", "", "This is an ending", "Choices will not show",5));
+        mainTree.getRight().setRight(new StoryTree("", "", "This is an ending", "Choices will not show",3));
 
         // The test below makes sure isFull works.
 
@@ -44,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         String test = " "+R.id.imageButton1+" "+R.id.imageButton2+" "+R.id.imageButton3+" "+R.id.imageButton4
                 +" "+R.id.imageButton5+" "+R.id.imageButton6+" "+R.id.imageButton7;
 
-        Log.i("MainActivity",test);
+        // Log.i("MainActivity",test);
 
         /*
             Intent i = new Intent(this, SecondActivity.class);
@@ -57,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startNewActivity (View view){
-        int id = (int) view.getId()-2131165250;
+        int id = (int) view.getId()-2131165254;
         // Log.i("MainActivity","searching for "+id);
         StoryTree tweakNode = mainTree.treeSearch(id);
 
@@ -81,15 +105,19 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // The user EDITED THINGS.
                 // get EDITED THINGS.
-                Bundle extras = data.getExtras();
-                int id = 2131165250 + extras.getInt(EDIT_ID_KEY);
+
+                // Log.i("MainActivity", ""+data.getExtras().size());
+
+                Bundle extras = data.getExtras(); // why would this be null ?
+
+                int id = extras.getInt(EDIT_ID_KEY);
                 StoryTree tweakNode = mainTree.treeSearch(id);
 
                 tweakNode.setTitle(extras.getString(EDIT_TITLE_KEY));
                 tweakNode.setBody(extras.getString(EDIT_BODY_KEY));
                 tweakNode.setChoice1txt(extras.getString(EDIT_CHOICE_1_KEY));
-                tweakNode.setChoice1txt(extras.getString(EDIT_CHOICE_2_KEY));
-
+                tweakNode.setChoice2txt(extras.getString(EDIT_CHOICE_2_KEY));
+                // Log.i("MainActivity", mainTree.getBody());
                 // The Intent's data Uri identifies which contact was selected.
                 // Do something with the contact here (bigger example below)
 
@@ -100,7 +128,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playActivity(View view){
-        Intent intent = new Intent(this, PlayActivity.class);
-        startActivity(intent);
+
+        //Log.i("MainActivity",mainTree.toString(""));
+
+        if (mainTree.isFull()) {
+
+            Intent intent = new Intent(this, PlayActivity.class);
+
+            intent.putExtra(NODE_1_INFO_KEY, mainTree.packageAssets());
+            intent.putExtra(NODE_2_INFO_KEY, mainTree.getLeft().packageAssets());
+            intent.putExtra(NODE_3_INFO_KEY, mainTree.getRight().packageAssets());
+
+            intent.putExtra(NODE_4_TITLE_KEY, mainTree.getLeft().getLeft().getTitle());
+            intent.putExtra(NODE_4_BODY_KEY, mainTree.getLeft().getLeft().getBody());
+
+            intent.putExtra(NODE_5_TITLE_KEY, mainTree.getLeft().getRight().getTitle());
+            intent.putExtra(NODE_5_BODY_KEY, mainTree.getLeft().getRight().getBody());
+
+            intent.putExtra(NODE_6_TITLE_KEY, mainTree.getRight().getLeft().getTitle());
+            intent.putExtra(NODE_6_BODY_KEY, mainTree.getRight().getLeft().getBody());
+
+            intent.putExtra(NODE_7_TITLE_KEY, mainTree.getRight().getRight().getTitle());
+            intent.putExtra(NODE_7_BODY_KEY, mainTree.getRight().getRight().getBody());
+
+            startActivity(intent);
+        }
     }
+
 }

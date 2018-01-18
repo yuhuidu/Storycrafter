@@ -1,5 +1,6 @@
 package com.smithjterm.storycrafter;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,6 +51,8 @@ public class NodeClicked extends AppCompatActivity {
 
         TextView c2View = (TextView) findViewById(R.id.editChoice2);
         i.putExtra(MainActivity.EDIT_CHOICE_2_KEY,c2View.getText().toString());
+
+        setResult(Activity.RESULT_OK, i);
 
         finish();
     }
