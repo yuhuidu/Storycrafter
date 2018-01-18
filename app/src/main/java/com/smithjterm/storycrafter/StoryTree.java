@@ -15,6 +15,7 @@ public class StoryTree {
     private String body;
     private String choice1txt;
     private String choice2txt;
+    private boolean isEnd = false;
 
     public StoryTree(){
       title = "";
@@ -67,12 +68,21 @@ public class StoryTree {
         return id;
     }
 
+    public boolean isEnding(){
+        return isEnd;
+    }
+
     public void setLeft(StoryTree left) {
         this.left = left;
     }
 
     public void setRight(StoryTree right) {
         this.right = right;
+    }
+
+    public void setChildren(StoryTree left, StoryTree right){
+        setLeft(left);
+        setRight(right);
     }
 
     public void setData(String t, String b, String c1, String c2){
@@ -96,6 +106,10 @@ public class StoryTree {
 
     public void setChoice2txt(String choice2txt) {
         this.choice2txt = choice2txt;
+    }
+
+    public void setEndStatus(boolean b){
+        isEnd = b;
     }
 
     public boolean isFull(){
@@ -124,16 +138,16 @@ public class StoryTree {
     }
 
     public StoryTree treeSearch(int num){
-        // Log.i("StoryTree","current id is "+id);
+        Log.i("StoryTree","current id is "+id);
         if (id == num) {
-           // Log.i("StoryTree","num found");
+            Log.i("StoryTree","num found");
             return this;
         }
 
         if (left != null && right != null){
-            // Log.i("StoryTree","going left");
+            Log.i("StoryTree","going left");
             StoryTree l = left.treeSearch(num);
-            // Log.i("StoryTree","going right");
+            Log.i("StoryTree","going right");
             StoryTree r = right.treeSearch(num);
             if (l != null) return l;
             if (r != null) return r;

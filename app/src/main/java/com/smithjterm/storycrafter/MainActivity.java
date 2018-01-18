@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startNewActivity (View view){
         int id = (int) view.getId()-2131165254;
-        // Log.i("MainActivity","searching for "+id);
+        Log.i("MainActivity","searching for "+id);
         StoryTree tweakNode = mainTree.treeSearch(id);
 
         Intent intent = new Intent(this, NodeClicked.class);

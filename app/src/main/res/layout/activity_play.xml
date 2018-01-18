@@ -56,9 +56,11 @@
                 tools:layout_editor_absoluteY="256dp" />
 
             <Button
-                android:id="@+id/c1Button_inplay"
+
+                android:id="@+id/playChoice1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="makeChoice"
                 android:text="@string/c1_inPlay"
                 tools:layout_editor_absoluteX="230dp"
                 tools:layout_editor_absoluteY="241dp" />
@@ -81,9 +83,11 @@
                 tools:layout_editor_absoluteY="206dp" />
 
             <Button
-                android:id="@+id/c2Button_inplay"
+
+                android:id="@+id/playChoice2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="makeChoice"
                 android:text="@string/c2_inPlay"
                 tools:layout_editor_absoluteX="241dp"
                 tools:layout_editor_absoluteY="195dp" />

@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+
+import java.util.HashMap;
 
 public class PlayActivity extends AppCompatActivity {
+
+    StoryTree currentTree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +39,37 @@ public class PlayActivity extends AppCompatActivity {
         storyTrees[6] = makeEnd(7, extras.getString(MainActivity.NODE_7_TITLE_KEY),
                 extras.getString(MainActivity.NODE_7_BODY_KEY));
 
+        storyTrees[0].setChildren(storyTrees[1],storyTrees[2]);
+        storyTrees[1].setChildren(storyTrees[3],storyTrees[4]);
+        storyTrees[2].setChildren(storyTrees[5],storyTrees[6]);
+
+        // Log.i("PlayActivity",storyTrees[0].toString(""));
+
         /* for (StoryTree s : storyTrees){
             Log.i("PlayActivity",s.toString(""));
         }*/
+
+        currentTree = storyTrees[0];
+        String choiceMsg = currentTree.getBody()+"\n>"+currentTree.getChoice1Txt()+"\n>"+currentTree.getChoice2Txt();
+        Log.i("PlayActivity",choiceMsg);
+    }
+
+    public void makeChoice(View view){
+        if (!currentTree.isEnding()) {
+
+            if (view.getId() == R.id.playChoice1) {
+                currentTree = currentTree.getLeft();
+            } else {
+                currentTree = currentTree.getRight();
+            }
+        }
+
+      if (currentTree.isEnding()){
+          Log.i("PlayActivity", currentTree.getBody());
+      } else {
+          String choiceMsg = currentTree.getBody()+"\n>"+currentTree.getChoice1Txt()+"\n>"+currentTree.getChoice2Txt();
+          Log.i("PlayActivity",choiceMsg);
+      }
     }
 
     public StoryTree makeTree(int id, String[] info){
@@ -46,6 +79,7 @@ public class PlayActivity extends AppCompatActivity {
 
     public StoryTree makeEnd(int id, String title, String body){
         StoryTree tree = new StoryTree(title, body, "","",id);
+        tree.setEndStatus(true);
         return tree;
     }
 }
