@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         String test = " "+R.id.imageButton1+" "+R.id.imageButton2+" "+R.id.imageButton3+" "+R.id.imageButton4
                 +" "+R.id.imageButton5+" "+R.id.imageButton6+" "+R.id.imageButton7;
 
-        // Log.i("MainActivity",test);
+        Log.i("MainActivity",test);
 
         /*
             Intent i = new Intent(this, SecondActivity.class);
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startNewActivity (View view){
-        int id = (int) view.getId()-2131165254;
+        int id = (int) view.getId()-R.id.imageButton1;
         Log.i("MainActivity","searching for "+id);
         StoryTree tweakNode = mainTree.treeSearch(id);
 
