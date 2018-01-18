@@ -9,4 +9,18 @@
     <string name="c1_inPlay">CHOICE1</string>
     <string name="c2_inPlay">CHOICE2</string>
     <string name="text_in_popup">ALL NODES NEED TO BE FILLED BEFORE PLAYING</string>
+    <string name="help_button">HELP</string>
+    <string name="help_text">
+        Welcome to Story Crafter!
+        \n
+        \n-Start your game from the top node!
+        \nYour first choice will go to the left node on the next level;
+        \nYour second choice will go to the right node on the next level.
+        \n-To edit your game, tap on the node you want to edit, and save your story by pressing the "SAVE ENTRY" button.
+        \n-When you finish editing all the nodes, you can proceed to start the game by pressing the "PLAY" button!
+        \n
+        \n-Restart the current game by choosing "Play again"; Make a new game by choosing "Close".
+        \n
+        \nIt is time to start your journey!
+    </string>
 </resources>

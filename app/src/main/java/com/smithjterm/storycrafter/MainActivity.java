@@ -158,4 +158,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void helpActivity(View view){
+        Intent intent = new Intent(this,help.class);
+        startActivity(intent);
+    }
+
 }
