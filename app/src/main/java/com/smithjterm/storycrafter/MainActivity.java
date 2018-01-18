@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             Intent intent = new Intent(this, popupWindow.class);
+
             startActivity(intent);
         }
     }
