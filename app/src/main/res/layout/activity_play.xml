@@ -37,9 +37,10 @@
             tools:layout_editor_absoluteY="287dp">
 
             <Button
-                android:id="@+id/choice1_in_play"
+                android:id="@+id/playChoice1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="makeChoice"
                 android:text="1st choice"
                 tools:layout_editor_absoluteX="75dp"
                 tools:layout_editor_absoluteY="231dp" />
@@ -50,9 +51,10 @@
                 android:layout_weight="1"></Space>
 
             <Button
-                android:id="@+id/choice2_in_play"
+                android:id="@+id/playChoice2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="makeChoice"
                 android:text="2nd choice"
                 tools:layout_editor_absoluteX="219dp"
                 tools:layout_editor_absoluteY="231dp" />
