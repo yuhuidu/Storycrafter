@@ -8,12 +8,12 @@
 
     <LinearLayout
         android:layout_width="363dp"
-        android:layout_height="267dp"
+        android:layout_height="391dp"
         android:layout_marginBottom="122dp"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="122dp"
-        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
