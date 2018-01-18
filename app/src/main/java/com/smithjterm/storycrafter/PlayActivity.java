@@ -1,21 +1,29 @@
 package com.smithjterm.storycrafter;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.HashMap;
 
 public class PlayActivity extends AppCompatActivity {
 
-    StoryTree currentTree;
+    StoryTree currentTree, homeTree;
+    TextView title, body, c1, c2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        title = (TextView) findViewById(R.id.playTitle);
+        body = (TextView) findViewById(R.id.playBody);
+        c1 = (TextView) findViewById(R.id.playChoice1Text);
+        c2 = (TextView) findViewById(R.id.playChoice2Text);
 
         Intent i = getIntent();
 
@@ -50,11 +58,18 @@ public class PlayActivity extends AppCompatActivity {
         }*/
 
         currentTree = storyTrees[0];
+        homeTree = storyTrees[0];
+
         String choiceMsg = currentTree.getBody()+"\n>"+currentTree.getChoice1Txt()+"\n>"+currentTree.getChoice2Txt();
         Log.i("PlayActivity",choiceMsg);
+        title.setText(currentTree.getTitle());
+        body.setText(currentTree.getBody());
+        c1.setText(currentTree.getChoice1Txt());
+        c2.setText(currentTree.getChoice2Txt());
     }
 
     public void makeChoice(View view){
+
         if (!currentTree.isEnding()) {
 
             if (view.getId() == R.id.playChoice1) {
@@ -62,13 +77,33 @@ public class PlayActivity extends AppCompatActivity {
             } else {
                 currentTree = currentTree.getRight();
             }
+
+            // update title and body
+            title.setText(currentTree.getTitle());
+            body.setText(currentTree.getBody());
+        } else {
+            if (view.getId() == R.id.playChoice1){
+               currentTree = homeTree;
+                title.setText(currentTree.getTitle());
+                body.setText(currentTree.getBody());
+            } else {
+               Intent i = getIntent();
+                setResult(Activity.RESULT_OK, i);
+                finish();
+            }
         }
+
+
 
       if (currentTree.isEnding()){
           Log.i("PlayActivity", currentTree.getBody());
+          c1.setText("Play Again");
+          c2.setText("New Story");
       } else {
           String choiceMsg = currentTree.getBody()+"\n>"+currentTree.getChoice1Txt()+"\n>"+currentTree.getChoice2Txt();
           Log.i("PlayActivity",choiceMsg);
+          c1.setText(currentTree.getChoice1Txt());
+          c2.setText(currentTree.getChoice2Txt());
       }
     }
 
