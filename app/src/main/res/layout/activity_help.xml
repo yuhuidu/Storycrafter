@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/b2"
     tools:context="com.smithjterm.storycrafter.help">
 
     <LinearLayout
@@ -22,8 +23,8 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="465dp"
+            android:layout_width="358dp"
+            android:layout_height="396dp"
             android:text="@string/help_text"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
@@ -35,8 +36,10 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button1"
             android:onClick="startNewActivity"
             android:text="OK"
+            android:textColor="@android:color/background_dark"
             tools:layout_editor_absoluteX="123dp"
             tools:layout_editor_absoluteY="429dp" />
 
