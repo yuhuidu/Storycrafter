@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class NodeClicked extends AppCompatActivity {
 
@@ -22,6 +25,15 @@ public class NodeClicked extends AppCompatActivity {
         String body = extras.getString(MainActivity.EDIT_BODY_KEY);
         String choice1 = extras.getString(MainActivity.EDIT_CHOICE_1_KEY);
         String choice2 = extras.getString(MainActivity.EDIT_CHOICE_2_KEY);
+
+        TextView titleView = (TextView) findViewById(R.id.editTitle);
+        titleView.setText(title);
+        TextView bodyView = (TextView) findViewById(R.id.editBody);
+        bodyView.setText(body);
+        TextView c1View = (TextView) findViewById(R.id.editChoice1);
+        c1View.setText(choice1);
+        TextView c2View = (TextView) findViewById(R.id.editChoice2);
+        c2View.setText(choice2);
 
     }
 

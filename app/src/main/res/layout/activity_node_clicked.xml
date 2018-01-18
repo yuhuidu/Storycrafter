@@ -7,8 +7,8 @@
     tools:context="com.smithjterm.storycrafter.NodeClicked">
 
     <LinearLayout
-        android:layout_width="327dp"
-        android:layout_height="440dp"
+        android:layout_width="325dp"
+        android:layout_height="480dp"
         android:layout_margin="30dp"
         android:layout_marginBottom="41dp"
         android:layout_marginEnd="28dp"
@@ -34,7 +34,7 @@
         <EditText
             android:id="@+id/editTitle"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="68dp"
             android:ems="10"
             android:hint="@string/title"
             android:inputType="textPersonName"
@@ -54,10 +54,14 @@
         <EditText
             android:id="@+id/editBody"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="102dp"
             android:ems="10"
+            android:gravity="top|left"
             android:hint="@string/body"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress|textMultiLine"
+            android:lines="20"
+            android:minLines="5"
+            tools:ignore="RtlHardcoded"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="150dp" />
 
@@ -101,15 +105,16 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="343dp" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="saveEntryActivity"
+            android:text="@string/save_entry"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="139dp" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:onClick="saveEntryActivity"
-        android:text="@string/save_entry"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="139dp" />
+
 </android.support.constraint.ConstraintLayout>

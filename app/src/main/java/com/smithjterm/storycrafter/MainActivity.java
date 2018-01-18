@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -119,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
                 // Log.i("MainActivity", mainTree.getBody());
                 // The Intent's data Uri identifies which contact was selected.
                 // Do something with the contact here (bigger example below)
+
+
+
             }
         }
     }
