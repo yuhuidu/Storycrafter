@@ -6,4 +6,7 @@
     <string name="choice2">Enter the 2nd choice</string>
     <string name="play">Play</string>
     <string name="save_entry">Save Entry</string>
+    <string name="c1_inPlay">CHOICE1</string>
+    <string name="c2_inPlay">CHOICE2</string>
+    <string name="text_in_popup">ALL NODES NEED TO BE FILLED BEFORE PLAYING</string>
 </resources>
