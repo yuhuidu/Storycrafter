@@ -6,9 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String NODE_7_BODY_KEY = "node 7 body";
 
     StoryTree mainTree = new StoryTree(0);
+    private ViewGroup rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
 
         } */
+        rootView = (ViewGroup) findViewById(R.id.add_layout);
     }
 
     public void startNewActivity (View view){
@@ -91,12 +98,14 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, NodeClicked.class);
 
-        //TextView postView = (TextView) findViewById(R.id.postEntry);
         intent.putExtra(EDIT_ID_KEY,id);
         intent.putExtra(EDIT_TITLE_KEY, tweakNode.getTitle());
         intent.putExtra(EDIT_BODY_KEY, tweakNode.getBody());
         intent.putExtra(EDIT_CHOICE_1_KEY, tweakNode.getChoice1Txt());
         intent.putExtra(EDIT_CHOICE_2_KEY, tweakNode.getChoice2Txt());
+
+        Log.i("tweaknode body", tweakNode.getBody());
+        Log.i("main tree body", mainTree.getBody());
 
         startActivityForResult(intent, EDIT_REQUEST);
     }
@@ -110,9 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 // The user EDITED THINGS.
                 // get EDITED THINGS.
 
-                // Log.i("MainActivity", ""+data.getExtras().size());
-
-                Bundle extras = data.getExtras(); // why would this be null ?
+                Bundle extras = data.getExtras();
 
                 int id = extras.getInt(EDIT_ID_KEY);
                 StoryTree tweakNode = mainTree.treeSearch(id);
@@ -121,8 +128,6 @@ public class MainActivity extends AppCompatActivity {
                 tweakNode.setBody(extras.getString(EDIT_BODY_KEY));
                 tweakNode.setChoice1txt(extras.getString(EDIT_CHOICE_1_KEY));
                 tweakNode.setChoice2txt(extras.getString(EDIT_CHOICE_2_KEY));
-                // Log.i("MainActivity", mainTree.getBody());
-
             }
         } else if (requestCode == RESTART_REQUEST){
             if (resultCode == RESULT_OK){
@@ -167,14 +172,38 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, RESTART_REQUEST);
         }
         else{
-            Intent intent = new Intent(this, popupWindow.class);
-            startActivity(intent);
+            Toast.makeText(MainActivity.this,
+                    "All buttons need to be filled!", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void helpActivity(View view){
         Intent intent = new Intent(this,help.class);
         startActivity(intent);
+    }
+
+    public void addActivity(View view){
+        ImageButton button = new ImageButton(MainActivity.this);
+        button.setImageResource(R.drawable.button1);
+        button.setId(2131165261+1);
+        ImageButton button1 = (ImageButton) findViewById(R.id.imageButton1);
+        mainTree.getLeft().getLeft().setLeft(new StoryTree(7));
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startNewActivity(v);
+            }
+        });
+
+        Log.i("new node id", ""+button.getId());
+        Log.i("first node id", ""+button1.getId());
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
+        rootView.addView(button, params);
     }
 
 }

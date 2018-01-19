@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="358dp"
+            android:layout_width="355dp"
             android:layout_height="396dp"
             android:text="@string/help_text"
             android:textColor="@android:color/background_dark"
