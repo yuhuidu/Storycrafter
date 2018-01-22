@@ -380,7 +380,7 @@ public class MainActivity extends AppCompatActivity {
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 button.setBackgroundResource(R.drawable.button2);
-                button.setPadding(55, 55, 55, 55);
+                button.setPadding(30, 30, 30, 30);
                 params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
                 rootView.addView(button, params);
             }
