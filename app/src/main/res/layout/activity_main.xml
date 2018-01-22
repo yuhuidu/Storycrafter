@@ -151,8 +151,8 @@
             android:orientation="horizontal"></LinearLayout>
 
         <LinearLayout
-            android:layout_width="264dp"
-            android:layout_height="75dp"
+            android:layout_width="336dp"
+            android:layout_height="95dp"
             android:layout_marginTop="53dp"
             android:gravity="center"
             android:orientation="horizontal"
@@ -163,15 +163,25 @@
                 android:id="@+id/helpButton"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
+                android:layout_weight="1"
                 android:onClick="helpActivity"
                 android:text="HELP"
                 tools:layout_editor_absoluteX="50dp"
                 tools:layout_editor_absoluteY="318dp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"></Space>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:onClick="saveStory"
+                android:text="save story" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:onClick="startLoadActivity"
+                android:text="load story" />
 
             <Button
                 android:id="@+id/add_button"
@@ -185,6 +195,7 @@
                 android:id="@+id/play_button"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
+                android:layout_weight="1"
                 android:onClick="playActivity"
                 android:text="@string/play"
                 app:layout_constraintEnd_toEndOf="parent"

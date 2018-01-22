@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewGroup rootView;
     public static boolean addButtonClicked = false;
+    public static final String CODE_KEY = "code key";
 
 
     @Override
@@ -181,6 +182,10 @@ public class MainActivity extends AppCompatActivity {
 
             Log.i("MainActivity",savedCode);
             // This should be a textview/toast/whatever
+
+        Intent intent = new Intent(this,secretCode.class);
+        intent.putExtra(CODE_KEY,savedCode);
+        startActivity(intent);
     }
 
     @Override
