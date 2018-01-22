@@ -21,16 +21,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="355dp"
-            android:layout_height="396dp"
-            android:text="@string/help_text"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="16dp" />
+        <ScrollView
+            android:id="@+id/SCROLLER_ID"
+            android:layout_width="345dp"
+            android:layout_height="444dp"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="355dp"
+                android:layout_height="396dp"
+                android:text="@string/help_text"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="43dp"
+                tools:layout_editor_absoluteY="16dp" />
+        </ScrollView>
         <Space
             android:layout_width="0dp"
             android:layout_height="15dp"></Space>
