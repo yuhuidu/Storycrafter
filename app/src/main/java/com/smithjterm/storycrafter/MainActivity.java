@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this,secretCode.class);
             intent.putExtra(CODE_KEY,savedCode);
             startActivity(intent);
-            
+
             // This should be a textview/toast/whatever
         } else{
             Toast.makeText(MainActivity.this,
@@ -242,7 +242,8 @@ public class MainActivity extends AppCompatActivity {
                 mainTree.getRight().getRight().setLeft(new StoryTree("", "", "This is an ending", "Choices will not show", 14));
                 mainTree.getRight().getRight().setRight(new StoryTree("", "", "This is an ending", "Choices will not show", 15));
 
-            } else if(requestCode == LOAD_REQUEST){
+            }
+        } else if(requestCode == LOAD_REQUEST){
                 if(resultCode == RESULT_OK){
                     Bundle extras = data.getExtras();
                     String fullTree = extras.getString(TREE_LOAD_KEY);
@@ -263,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-    }
     }
 
     public void playActivity(View view){
