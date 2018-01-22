@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
             firebaseDatabaseRef.push().setValue(new StoredTree(savedCode,file));
 
             Log.i("MainActivity",savedCode);
-            // later: implement
+            // This should be a textview/toast/whatever
     }
 
     @Override

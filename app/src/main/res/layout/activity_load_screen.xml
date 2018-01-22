@@ -23,7 +23,7 @@
             android:id="@+id/loadTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/load_title"
             android:textColor="@android:color/holo_purple"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -37,7 +37,7 @@
             android:inputType="textEmailAddress|textMultiLine"
             android:lines="20"
             android:minLines="5"
-            android:text="TextView"
+            android:text="@string/load_blurb"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="25dp"
             tools:layout_editor_absoluteY="93dp" />
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="loadEntryActivity"
-                android:text="Load"
+                android:text="@string/load_cmd"
                 android:textColor="@android:color/background_dark"
                 tools:layout_editor_absoluteX="241dp"
                 tools:layout_editor_absoluteY="195dp" />

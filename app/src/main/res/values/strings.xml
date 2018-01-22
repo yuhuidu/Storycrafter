@@ -24,5 +24,7 @@
         \nMade with love by Helen Du and Sarah Abowitz.
     </string>
     <string name="load_title">Load Story</string>
+    <string name="load_blurb">Type in a Secret Code to download an adventure to edit!</string>
+    <string name="load_cmd">Load</string>
 
 </resources>
