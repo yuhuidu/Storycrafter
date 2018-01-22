@@ -10,12 +10,23 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     // let's tell some sci-fi stories! :D - sarah
+
+    // TODO: @Helen, I made help do the loading thing. we just need a load button that when clicked
+    // does the startLoadActivity.
+
     static final int EDIT_REQUEST = 1;
     static final int RESTART_REQUEST = 2;
-    static final int BACK_REQUEST = 3;
+    static final int BACK_REQUEST = 3; // if this isn't used pls delete
+    static final int LOAD_REQUEST = 4;
+
     public static final String EDIT_ID_KEY = "edit id";
     public static final String EDIT_TITLE_KEY = "edit title";
     public static final String EDIT_BODY_KEY = "edit body";
@@ -46,10 +57,19 @@ public class MainActivity extends AppCompatActivity {
     public static final String NODE_7_TITLE_KEY = "node 7 title";
     public static final String NODE_7_BODY_KEY = "node 7 body";
 
+    public static final String TREE_LOAD_KEY="tree load";
+    public static final String LOAD_CODE_KEY="loaded code";
+
+    // firebase instance variable
+    private DatabaseReference firebaseDatabaseRef;
+
     StoryTree mainTree = new StoryTree(0);
+    private String savedCode;
+    private String alphabetPlus = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        savedCode = "";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -82,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
 
         } */
+
+        firebaseDatabaseRef = FirebaseDatabase.getInstance().getReference().child("stories");
     }
 
     public void startNewActivity (View view){
@@ -99,6 +121,29 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EDIT_CHOICE_2_KEY, tweakNode.getChoice2Txt());
 
         startActivityForResult(intent, EDIT_REQUEST);
+    }
+
+    public void startLoadActivity(View view){
+        Intent intent = new Intent(this,LoadScreen.class);
+        startActivityForResult(intent, LOAD_REQUEST);
+    }
+
+    public void saveStory(View view){
+            for (int i = 0; i < 6; i++){
+              int x = (int) (Math.random() * alphabetPlus.length());
+              if (x == alphabetPlus.length()-1){
+                  savedCode += "Z";
+              } else {
+                  savedCode += alphabetPlus.substring(x,x+1);
+              }
+            }
+
+            String file = thisToFile();// make the file
+
+            firebaseDatabaseRef.push().setValue(new StoredTree(savedCode,file));
+
+            Log.i("MainActivity",savedCode);
+            // later: implement
     }
 
     @Override
@@ -135,7 +180,26 @@ public class MainActivity extends AppCompatActivity {
 
                 mainTree.getRight().setLeft(new StoryTree("", "", "This is an ending", "Choices will not show",5));
                 mainTree.getRight().setRight(new StoryTree("", "", "This is an ending", "Choices will not show",3));
+                savedCode = "";
+            }
+        } else if(requestCode == LOAD_REQUEST){
+            if(resultCode == RESULT_OK){
+                Bundle extras = data.getExtras();
+                String fullTree = extras.getString(TREE_LOAD_KEY);
+                savedCode = extras.getString(LOAD_CODE_KEY);
 
+                TreeTokenizer treeto = new TreeTokenizer();
+                ArrayList<String> trees = treeto.separate(fullTree,"{[","]}");
+
+                treeto.assignNode(trees.get(0),mainTree);
+                treeto.assignNode(trees.get(1),mainTree.getLeft());
+                treeto.assignNode(trees.get(2),mainTree.getRight());
+                treeto.assignNode(trees.get(3),mainTree.getLeft().getLeft());
+                treeto.assignNode(trees.get(4),mainTree.getLeft().getRight());
+                treeto.assignNode(trees.get(5),mainTree.getRight().getLeft());
+                treeto.assignNode(trees.get(6),mainTree.getRight().getRight());
+
+                // treeto.separate(trees.get(0),"[","]");
             }
         }
     }
@@ -175,6 +239,34 @@ public class MainActivity extends AppCompatActivity {
     public void helpActivity(View view){
         Intent intent = new Intent(this,help.class);
         startActivity(intent);
+    }
+
+    public String thisToFile(){
+        String result = "";
+
+        // mainTree
+        result += "{["+mainTree.getTitle()+"]["+mainTree.getBody()+"]["+mainTree.getChoice1Txt()+"]["+mainTree.getChoice2Txt()+"]}";
+
+        //mainTree.getLeft()
+        result += "{["+mainTree.getLeft().getTitle()+"]["+mainTree.getLeft().getBody()+"]["+mainTree.getLeft().getChoice1Txt()+"]["+mainTree.getLeft().getChoice2Txt()+"]}";
+
+        //mainTree.getRight()
+        result += "{["+mainTree.getRight().getTitle()+"]["+mainTree.getRight().getBody()+"]["+mainTree.getRight().getChoice1Txt()+"]["+mainTree.getRight().getChoice2Txt()+"]}";
+
+        //mainTree.getLeft().getLeft();
+        result += "{["+mainTree.getLeft().getLeft().getTitle()+"]["+mainTree.getLeft().getLeft().getBody()+"]["+mainTree.getLeft().getLeft().getChoice1Txt()+"]["+mainTree.getLeft().getLeft().getChoice2Txt()+"]}";
+
+        //mainTree.getLeft().getRight();
+        result += "{["+mainTree.getLeft().getRight().getTitle()+"]["+mainTree.getLeft().getRight().getBody()+"]["+mainTree.getLeft().getRight().getChoice1Txt()+"]["+mainTree.getLeft().getRight().getChoice2Txt()+"]}";
+
+        //mainTree.getRight().getLeft();
+        result += "{["+mainTree.getRight().getLeft().getTitle()+"]["+mainTree.getRight().getLeft().getBody()+"]["+mainTree.getRight().getLeft().getChoice1Txt()+"]["+mainTree.getRight().getLeft().getChoice2Txt()+"]}";
+
+        //mainTree.getRight().setRight(new StoryTree("", "", "This is an ending", "Choices will not show",3));
+        result += "{["+mainTree.getRight().getRight().getTitle()+"]["+mainTree.getRight().getRight().getBody()+"]["+mainTree.getRight().getRight().getChoice1Txt()+"]["+mainTree.getRight().getRight().getChoice2Txt()+"]}";
+
+        return result;
+
     }
 
 }

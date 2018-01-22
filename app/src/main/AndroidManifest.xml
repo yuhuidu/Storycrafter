@@ -19,7 +19,8 @@
         <activity android:name=".NodeClicked" />
         <activity android:name=".PlayActivity" />
         <activity android:name=".popupWindow" />
-        <activity android:name=".help"></activity>
+        <activity android:name=".help" />
+        <activity android:name=".LoadScreen"></activity>
     </application>
 
 </manifest>

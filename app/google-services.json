@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "954180298742",
+    "firebase_url": "https://storycrafter-d4cb3.firebaseio.com",
+    "project_id": "storycrafter-d4cb3",
+    "storage_bucket": "storycrafter-d4cb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954180298742:android:40b66549dda89ab5",
+        "android_client_info": {
+          "package_name": "com.smithjterm.storycrafter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954180298742-piel2nu4uitafspqdqok4bphfkl5llbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0V-9iyQn2LsBfzAPmg9vFEJIbTpR-Kl0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

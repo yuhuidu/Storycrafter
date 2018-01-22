@@ -22,5 +22,9 @@
         \n-Restart the current game by choosing "Play again"; Make a new game by choosing "Close".
         \n
         \nIt is time to start your journey!
+        \n
+        \nMade with love by Helen Du and Sarah Abowitz.
     </string>
+    <string name="load_title">Load Story</string>
+
 </resources>
