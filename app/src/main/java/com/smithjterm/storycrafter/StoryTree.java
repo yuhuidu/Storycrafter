@@ -144,12 +144,13 @@ public class StoryTree {
             return this;
         }
 
-        if (left != null && right != null){
+        else if (left != null || right != null){
             Log.i("StoryTree","going left");
             StoryTree l = left.treeSearch(num);
+            if (l != null) return l;
+
             Log.i("StoryTree","going right");
             StoryTree r = right.treeSearch(num);
-            if (l != null) return l;
             if (r != null) return r;
         }
 
