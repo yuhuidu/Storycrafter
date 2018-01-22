@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewGroup rootView;
     public static boolean addButtonClicked = false;
+    public static final String CODE_KEY = "code key";
 
 
     @Override
@@ -182,11 +183,18 @@ public class MainActivity extends AppCompatActivity {
             firebaseDatabaseRef.push().setValue(new StoredTree(savedCode, file));
 
             Log.i("MainActivity", savedCode);
+
+
+            Intent intent = new Intent(this,secretCode.class);
+            intent.putExtra(CODE_KEY,savedCode);
+            startActivity(intent);
+            
             // This should be a textview/toast/whatever
         } else{
             Toast.makeText(MainActivity.this,
                     "All buttons need to be filled!", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
@@ -381,7 +389,7 @@ public class MainActivity extends AppCompatActivity {
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 button.setBackgroundResource(R.drawable.button2);
-                button.setPadding(55, 55, 55, 55);
+                button.setPadding(30, 30, 30, 30);
                 params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
                 rootView.addView(button, params);
             }

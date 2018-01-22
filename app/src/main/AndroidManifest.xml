@@ -18,9 +18,10 @@
         </activity>
         <activity android:name=".NodeClicked" />
         <activity android:name=".PlayActivity" />
-        <!--<activity android:name=".popupWindow" />-->
+        <!-- <activity android:name=".popupWindow" /> -->
         <activity android:name=".help" />
-        <activity android:name=".LoadScreen"></activity>
+        <activity android:name=".LoadScreen" />
+        <activity android:name=".secretCode"></activity>
     </application>
 
 </manifest>
