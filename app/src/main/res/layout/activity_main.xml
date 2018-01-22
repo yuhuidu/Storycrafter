@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="317dp"
-        android:layout_height="426dp"
+        android:layout_width="352dp"
+        android:layout_height="429dp"
         android:layout_marginBottom="193dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
@@ -177,7 +177,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:onClick="addActivity"
-                android:text="add button" />
+                android:text="add line" />
 
             <Button
                 android:id="@+id/play_button"
