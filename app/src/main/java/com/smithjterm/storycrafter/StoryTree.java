@@ -117,7 +117,7 @@ public class StoryTree {
           return false;
       }
 
-      if (left != null && right != null){
+      if (left != null || right != null){
           return (left.isFull() && right.isFull());
       }
 
@@ -127,7 +127,7 @@ public class StoryTree {
     public String toString(String starter){
         starter+=""+id+" "+title+" "+body+" "+choice1txt+" "+choice2txt;
 
-        if (left != null && right != null){
+        if (left != null || right != null){
             starter += " < ";
             starter = left.toString(starter);
             starter += " > ";

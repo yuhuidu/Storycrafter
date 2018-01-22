@@ -166,21 +166,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void saveStory(View view){
-            for (int i = 0; i < 6; i++){
-              int x = (int) (Math.random() * alphabetPlus.length());
-              if (x == alphabetPlus.length()-1){
-                  savedCode += "Z";
-              } else {
-                  savedCode += alphabetPlus.substring(x,x+1);
-              }
+        if(mainTree.isFull()) {
+
+            for (int i = 0; i < 6; i++) {
+                int x = (int) (Math.random() * alphabetPlus.length());
+                if (x == alphabetPlus.length() - 1) {
+                    savedCode += "Z";
+                } else {
+                    savedCode += alphabetPlus.substring(x, x + 1);
+                }
             }
 
             String file = thisToFile();// make the file
 
-            firebaseDatabaseRef.push().setValue(new StoredTree(savedCode,file));
+            firebaseDatabaseRef.push().setValue(new StoredTree(savedCode, file));
 
-            Log.i("MainActivity",savedCode);
+            Log.i("MainActivity", savedCode);
             // This should be a textview/toast/whatever
+        } else{
+            Toast.makeText(MainActivity.this,
+                    "All buttons need to be filled!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
