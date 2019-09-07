@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Little Plant Thoughts</string>
+    <string name="app_name">Story Crafter</string>
     <string name="title">Enter the title</string>
     <string name="body">Enter the body</string>
     <string name="choice1">Enter the 1st choice</string>
@@ -7,15 +7,25 @@
     <string name="play">Play</string>
     <string name="save_entry">Save Entry</string>
     <string name="c1_inPlay">CHOOSE</string>
-    <string name="c2_inPlay"> >>> </string>
+    <string name="c2_inPlay">CHOOSE</string>
     <string name="text_in_popup">ALL NODES NEED TO BE FILLED BEFORE PLAYING</string>
     <string name="help_button">HELP</string>
     <string name="help_text">
-        Welcome to Little Plant Thoughts!
+        Welcome to Story Crafter!
         \n
-        \n help coming soon...
+        \n-Start your game from the top node!
+        \nYour first choice will go to the left node on the next level;
+        \nYour second choice will go to the right node on the next level.
+        \n-To edit your game, tap on the node you want to edit, and save your story by pressing the "SAVE ENTRY" button.
+        \n-When you finish editing all the nodes, you can proceed to start the game by pressing the "PLAY" button!
+        \nOr save your entire story by pressing SAVE STORY.
+        \n-Once you saved your story, do not forget to copy the secret code to your story so that you can load it next time
         \n
-        \n Made by The Strict Parents for PennApps XX.
+        \n-If 7 nodes are not enough for your story, you can add a new line by pressing ADD LINE for more story endings!
+        \n
+        \n-Restart the current game by choosing "Play again"; Make a new game by choosing "Close".
+        \n
+        \nMade with love by Helen Du and Sarah Abowitz.
     </string>
     <string name="load_title">Load Story</string>
     <string name="load_blurb">Type in a Secret Code to download an adventure to edit!</string>
